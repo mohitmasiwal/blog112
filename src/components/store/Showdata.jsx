@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 
- 
 export const Showdata = React.createContext();
 
 const Showdataprovider = ({ children }) => {
   const [open, setopen] = useState(false); 
 
-  function onclose(){
-    setopen(false);
-  }
-   
+  const onclose = () => setopen(false);
   const onopen = () => {
     console.log("clicked");
-    setopen(true);}
+    setopen(true);
+  };
 
-   
   const blogdata = {
-    open , 
-    onclose ,
-    onopen  
+    open,
+    onclose,
+    onopen
   };
 
   return (
