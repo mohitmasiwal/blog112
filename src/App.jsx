@@ -51,12 +51,6 @@ useEffect(() => {
     setimpdata(JSON.parse(stored));  
   }
 }, []);
-
-
-
-
-
-
   return (
     <>
       {open && <Modalform  getData={getData}    editData={editData} />}
