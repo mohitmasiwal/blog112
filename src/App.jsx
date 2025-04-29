@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Modalform from './components/Modalform';
 import {Showdata} from './components/store/Showdata';
 import Blogstr from './components/Blogstr';
@@ -29,21 +29,33 @@ function handleedit(i){
 }
 
 
-const getData =(data)=>{
-  console.log(data);
-  if(editIndex !==null){
-let updatedata = [...impddata]
- updatedata[editIndex] = data;
- setimpdata(updatedata);
- setEditIndex(null)
- setEditData(null)
- 
- 
-  }else{
-    setimpdata((pre)=>[...pre, data])
+const getData = (data) => {
+  if (editIndex !== null) {
+    let updatedata = [...impddata];
+    updatedata[editIndex] = data;
+    setimpdata(updatedata);
+    localStorage.setItem("userdata", JSON.stringify(updatedata)); // ✅ Save full array
+    setEditIndex(null);
+    setEditData(null);
+  } else {
+    const newData = [...impddata, data];
+    setimpdata(newData);
+    localStorage.setItem("userdata", JSON.stringify(newData)); // ✅ Save full array
   }
- 
-}
+};
+
+
+useEffect(() => {
+  const stored = localStorage.getItem("userdata");
+  if (stored) {
+    setimpdata(JSON.parse(stored));  
+  }
+}, []);
+
+
+
+
+
 
   return (
     <>

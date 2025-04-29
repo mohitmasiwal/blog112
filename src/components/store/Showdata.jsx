@@ -10,11 +10,13 @@ const Showdataprovider = ({ children }) => {
     console.log("clicked");
     setopen(true);
   };
+   
 
   const blogdata = {
     open,
     onclose,
-    onopen
+    onopen,
+   
   };
 
   return (

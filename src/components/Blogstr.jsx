@@ -5,8 +5,8 @@ const Blogstr = () => {
   const { onopen } = useContext(Showdata)
 
   return (
-    <div className="p-4 bg-gray-100 flex items-center justify-center">
-      <div className="bg-white shadow-md rounded-2xl p-6 w-full max-w-md text-center">
+    <div className="p-4  flex items-center justify-center">
+      <div className="bg-white shadow-md rounded-2xl p-6 w-full  text-center">
         <h1 className="text-2xl font-bold mb-4">
           Blog Website
         </h1>
